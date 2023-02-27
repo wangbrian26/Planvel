@@ -1,0 +1,20 @@
+{
+  "name": "planvel",
+  "version": "1.0.0",
+  "description": "A one stop website for all of your travel needs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangbrian26/Planvel.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wangbrian26/Planvel/issues"
+  },
+  "homepage": "https://github.com/wangbrian26/Planvel#readme"
+}
