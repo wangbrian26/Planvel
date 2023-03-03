@@ -4,7 +4,11 @@
   "description": "A one stop website for all of your travel needs.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
   },
   "repository": {
     "type": "git",
@@ -16,5 +20,6 @@
   "bugs": {
     "url": "https://github.com/wangbrian26/Planvel/issues"
   },
-  "homepage": "https://github.com/wangbrian26/Planvel#readme"
+  "homepage": "https://github.com/wangbrian26/Planvel#readme",
+  "dependencies": {}
 }
