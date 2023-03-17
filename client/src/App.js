@@ -15,6 +15,26 @@ import Dashboard from "./pages/Dashboard";
 import Contact from "./pages/Contact";
 import Trip from "./pages/Trip";
 import Trips from "./pages/Trips";
+import Navbar from "./components/Navbar";
+
+const httpLink = createHttpLink({
+  uri: "/graphql",
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("auth_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 
 function App() {
   return (
@@ -22,12 +42,13 @@ function App() {
       <Router>
         <div>
           <Navbar />
-          <ChatBox />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/feed" element={<Feed />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/add-pet" element={<AddPet />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/trips" element={<Trips />} />
+            <Route path=":tripId" element={<Trip />} />
           </Routes>
         </div>
       </Router>
